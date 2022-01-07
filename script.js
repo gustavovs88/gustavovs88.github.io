@@ -1,3 +1,11 @@
+const navBar = document.querySelector('#navbarNav');
+const navBarButton = document.querySelector('.navbar-toggler');
+navBarButton.addEventListener('click', () => {
+  navBar.classList.toggle('collapse');
+  console.log('navbar');
+})
+
+
 const introAnimated = document.getElementById("introAnimated");
 const ctx = introAnimated.getContext("2d");
 const screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -66,7 +74,7 @@ class Particle {
     this.y = y;
     this.position1 = Math.floor(this.y) / fontSizeFactor - positionAdjustY;
     this.position2 = Math.floor(this.x) / fontSizeFactor - positionAdjustX;
-    this.size = screenWidth < 720 ? 3 : 1;;
+    this.size = screenWidth < 720 ? 1 : 3;
 
     // this.size = screenWidth < 720 ? Math.random() * 1.5 + 1 : Math.random() * 3 + 1;
     this.baseX = this.x;
@@ -178,6 +186,12 @@ flipCard.addEventListener("mouseout", function() {
   backendDescription.classList.toggle('hide')
 
 })
+flipCard.addEventListener("click", function() {
+  frontendDescription.classList.toggle('hide')
+  backendDescription.classList.toggle('hide')
+  flipCard.classList.toggle('rotate')
+
+})
 
 const myPhoto = document.querySelector('.my-photo')
 
@@ -208,3 +222,4 @@ const footerAnimation = new IntersectionObserver(entries => {
 });
 
 footerAnimation.observe(document.querySelector('#header'));
+
